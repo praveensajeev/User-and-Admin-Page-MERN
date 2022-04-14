@@ -1,0 +1,58 @@
+ <header><nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Shopping cart</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="">Products</a>
+        </li>
+        {{#if user}}
+        <li class="nav-item">
+          <a class="nav-link" href="/cart">Cart</a>
+        </li>
+        
+        {{else}}
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Cart</a>
+        </li>
+        {{/if}}
+
+        {{#if user}}
+         <li class="nav-item">
+          <a class="nav-link" href="#">Orders</a>
+        </li>
+        {{/if}}
+         
+         
+        
+      </ul>
+     <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          {{#if user}}
+          {{user.Name}}
+          {{else if admin}}
+          {{admin.Name}}
+
+          {{else}}
+          Account
+          {{/if}}
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            {{#if user}}
+            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+            {{else}}
+            <li><a class="dropdown-item" href="/login">Login</a></li>
+            <li><a class="dropdown-item" href="admin/admin_login">Admin Login</a></li>
+
+            {{/if}}
+            
+            
+          </ul>
+          
+        </div>
+    </div>
+  </div>
+</nav></header>
